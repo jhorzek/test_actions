@@ -1,0 +1,18 @@
+name: check rlernplattfrom dependencies
+
+on:
+  workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  container:
+   image: scm.cms.hu-berlin.de:4567/orzekjan/rlernplattform-dependencies
+    
+  steps:
+    - name: check loading lavaan
+      run: library("lavaan")
+      shell: Rscript {0}
